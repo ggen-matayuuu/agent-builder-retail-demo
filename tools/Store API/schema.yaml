@@ -1,0 +1,68 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Store API
+  description: Get all the products in Store.
+servers:
+- url: https://retail-product-cart-order-management-dev-rvecimypba-uc.a.run.app
+paths:
+  /get_product_names:
+    post:
+      operationId: get_product_names
+      summary: Get product names from store product catalog.
+      parameters:
+      - name: session_id
+        in: query
+        description: ID of session to return
+        required: true
+        schema:
+          $ref: '@dialogflow/sessionId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - category
+              type: object
+              properties:
+                category:
+                  type: string
+      responses:
+        '200':
+          description: Successfully got results (may be empty)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: string
+        '404':
+          description: Cannot reach endpoint (may be empty)
+  /get_categories:
+    post:
+      operationId: get_categories
+      summary: Get all categories from store.
+      parameters:
+      - name: session_id
+        in: query
+        description: ID of session to return
+        required: true
+        schema:
+          $ref: '@dialogflow/sessionId'
+      responses:
+        '200':
+          description: Successfully got results (may be empty)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: string
+        '404':
+          description: Cannot reach endpoint (may be empty)

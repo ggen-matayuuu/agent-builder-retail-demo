@@ -1,0 +1,103 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Shopping Cart Management APIs
+  description: Add, remove and view products in shopping cart.
+servers:
+- url: https://retail-product-cart-order-management-dev-rvecimypba-uc.a.run.app
+paths:
+  /add_to_shopping_cart:
+    post:
+      operationId: add_to_shopping_cart
+      summary: Add an product to the shopping cart.
+      parameters:
+      - name: session_id
+        in: query
+        description: ID of session to return
+        required: true
+        schema:
+          $ref: '@dialogflow/sessionId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - product
+              - quantity
+              type: object
+              properties:
+                product:
+                  type: string
+                quantity:
+                  type: integer
+      responses:
+        '200':
+          description: Successfully got results (may be empty)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: string
+  /remove_from_shopping_cart:
+    post:
+      operationId: remove_from_shopping_cart
+      summary: Remove an product from the shopping cart.
+      parameters:
+      - name: session_id
+        in: query
+        description: ID of session to return
+        required: true
+        schema:
+          $ref: '@dialogflow/sessionId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - product
+              - quantity
+              type: object
+              properties:
+                product:
+                  type: string
+                quantity:
+                  type: integer
+      responses:
+        '200':
+          description: Successfully got results (may be empty)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: string
+  /view_shopping_cart:
+    post:
+      operationId: view_shopping_cart
+      summary: View the shopping cart.
+      parameters:
+      - name: session_id
+        in: query
+        description: ID of session to return
+        required: true
+        schema:
+          $ref: '@dialogflow/sessionId'
+      responses:
+        '200':
+          description: Successfully got results (may be empty)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: string

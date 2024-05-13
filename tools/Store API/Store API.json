@@ -1,0 +1,9 @@
+{
+  "name": "5a242bc7-d448-4d1a-ab19-505ab726f6bc",
+  "displayName": "Store API",
+  "description": "The REST API for the database that contains information about products sold in the Store.",
+  "openApiSpec": {
+  
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

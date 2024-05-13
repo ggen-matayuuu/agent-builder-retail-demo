@@ -1,0 +1,22 @@
+{
+  "fallbackSettings": {
+    "selectedPrompt": "Default"
+  },
+  "generativeSafetySettings": {
+  
+  },
+  "languageCode": "en",
+  "knowledgeConnectorSettings": {
+    "business": "internal",
+    "groundingSettings": {
+      "disabled": true
+    }
+  },
+  "llmModelSettings": {
+    "model": "gemini-pro",
+    "parameters": {
+      "temperature": 0,
+      "inputTokenLimit": "INPUT_TOKEN_LIMIT_UNSPECIFIED"
+    }
+  }
+}
